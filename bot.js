@@ -28,8 +28,8 @@ function coinFlip() {
 
 
 client.on("message", message => {
-    if (message.author.bot) return;
-
+    //if (message.author.bot) return;
+    
     let guildPrefix = prefix.getPrefix(message.guild.id); //get the prefix for the discord server
 
     if (!guildPrefix) guildPrefix = defaultPrefix; //set prefix to the default prefix if there isn't one
@@ -45,6 +45,11 @@ client.on("message", message => {
 
     } else if (cmd == ("CoinFlip")) {
         message.channel.send((Math.random() > 0.5 ? "Head's" : "Tail's"));
+
+    } else if (cmd == ("Head?")) {
+        message.channel.send(cmd + "Head?");
+        message.channel.send((Math.random() > 0.5 ? "Yes" : "No"));
+
 
     } else if (args.join(" ").toLowerCase() == "help") {
         message.channel.send("LF Prefix (to change prefix), CoinFlip, UptimeN ");
